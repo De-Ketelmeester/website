@@ -401,5 +401,33 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// ============ ENHANCED CONVERSIONS: CAPTURE FORM PII ============
+// On any submit that POSTs to offerte.php or contact.php, snapshot the
+// email + phone into sessionStorage so bedankt.html can push them as
+// user_data alongside generate_form_lead. gtag hashes client-side before
+// sending. Skips when validation cancelled the submit.
+document.addEventListener('submit', function(e) {
+  if (e.defaultPrevented) return;
+  var form = e.target;
+  if (!form || !form.action) return;
+  if (!/(?:offerte|contact)\.php(?:$|\?)/.test(form.action)) return;
+
+  try {
+    var fd = new FormData(form);
+    var email = (fd.get('email') || '').toString().trim().toLowerCase();
+    var rawPhone = (fd.get('phone') || fd.get('telefoon') || '').toString();
+    var digits = rawPhone.replace(/\D/g, '');
+    if (digits && digits.charAt(0) === '0') digits = '31' + digits.substring(1);
+    var phone = digits ? '+' + digits : '';
+
+    var userData = {};
+    if (email) userData.email = email;
+    if (phone) userData.phone_number = phone;
+    if (userData.email || userData.phone_number) {
+      sessionStorage.setItem('km_lead_data', JSON.stringify(userData));
+    }
+  } catch (err) { /* sessionStorage unavailable — non-fatal */ }
+}, false);
+
 
 

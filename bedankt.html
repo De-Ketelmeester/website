@@ -42,7 +42,18 @@
 
   <script>
     window.dataLayer = window.dataLayer || [];
-    dataLayer.push({event: 'generate_form_lead'});
+    (function () {
+      var payload = { event: 'generate_form_lead' };
+      try {
+        var raw = sessionStorage.getItem('km_lead_data');
+        if (raw) {
+          var ud = JSON.parse(raw);
+          sessionStorage.removeItem('km_lead_data');
+          if (ud && (ud.email || ud.phone_number)) payload.user_data = ud;
+        }
+      } catch (e) { /* sessionStorage unavailable — fire without user_data */ }
+      dataLayer.push(payload);
+    })();
   </script>
 </head>
 
