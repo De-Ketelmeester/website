@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const data = Object.fromEntries(formData);
 
       // Basic validation
-      if (!data.name || !data.phone || !data.email || !data.service) {
+      if (!data.name || !data.phone || !data.email) {
         e.preventDefault();
         alert('Vul alstublieft alle verplichte velden in.');
         return;
