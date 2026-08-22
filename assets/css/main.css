@@ -1395,11 +1395,14 @@ body {
   }
 }
 
-/* Desktop shows the phone number on call buttons, since a desktop visitor
-   dials by hand. Mobile keeps the tap-to-call label. Number lives in the
-   markup so the Qooqie swap picks it up like any other number. */
-.bel-nummer { display: none; }
-@media (hover: hover) and (pointer: fine) {
-  a[href^="tel:"] .bel-label { display: none; }
-  a[href^="tel:"] .bel-nummer { display: inline; }
+/* Call buttons: the number is the default face, because desktops and most
+   tablets cannot place a call, and the number lives in the markup as text
+   so the Qooqie swap picks it up like any other number. Only a real phone,
+   touch plus a phone-sized screen, gets the tap-to-call label. On a phone
+   the number face would still dial fine via the tel: link, so the edge
+   cases (landscape phones, tiny desktop windows) stay functional. */
+a[href^="tel:"] .bel-label { display: none; }
+@media (hover: none) and (pointer: coarse) and (max-width: 700px) {
+  a[href^="tel:"] .bel-label { display: inline; }
+  a[href^="tel:"] .bel-nummer { display: none; }
 }
