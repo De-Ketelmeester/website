@@ -1214,3 +1214,9 @@ a[href^="tel:"] .bel-label { display: none; }
   a[href^="tel:"] .bel-label { display: inline; }
   a[href^="tel:"] .bel-nummer { display: none; }
 }
+
+/* While the Qooqie number swap is pending the numbers are blanked, so the
+   visitor never sees the real number flip to the tracking number. The
+   qq-wait class is set by inline JS and removed on swap or after 1.2s,
+   so no-JS visitors and Qooqie failures always end at a visible number. */
+.qq-wait a[href^="tel:"] { visibility: hidden; }
