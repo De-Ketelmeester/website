@@ -35,7 +35,6 @@
   <link rel="stylesheet" href="./assets/css/main.css" />
   <link rel="stylesheet" href="./assets/css/landing.css" />
   <script src="./assets/scripts/index.js" defer></script>
-  <script src="./assets/scripts/desktop-call-display.js" defer></script>
 
   <!-- Favicon -->
   <link rel="icon" href="./assets/imgs/logo.webp" type="image/webp" />
@@ -46,11 +45,12 @@
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
     gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
     (function(){var m=document.cookie.match(/(?:^|;\s*)cookie_consent=([^;]+)/);var c=m?decodeURIComponent(m[1]):null;if(c==='granted'){gtag('consent','update',{'analytics_storage':'granted','ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted'});}if(!c){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',showConsentBanner);}else{showConsentBanner();}}})();
-    function showConsentBanner(){var b=document.getElementById('consentBanner');if(b)b.classList.add('visible');}
-    function acceptCookies(){setConsentCookie('granted');gtag('consent','update',{'analytics_storage':'granted','ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted'});hideConsentBanner();}
-    function declineCookies(){setConsentCookie('denied');hideConsentBanner();}
+    function showConsentBanner(){var b=document.getElementById('consentBanner');if(!b)return;var s=document.querySelector('.mobile-sticky-bar');if(s&&getComputedStyle(s).display!=='none'){b.style.bottom=s.offsetHeight+'px';}b.classList.add('visible');}
+    function acceptCookies(){setConsentCookie('granted');gtag('consent','update',{'analytics_storage':'granted','ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted'});signalQooqieConsent(true);hideConsentBanner();}
+    function declineCookies(){setConsentCookie('denied');signalQooqieConsent(false);hideConsentBanner();}
     function setConsentCookie(v){var e=new Date(Date.now()+365*864e5).toUTCString();document.cookie='cookie_consent='+encodeURIComponent(v)+'; expires='+e+'; path=/; secure; samesite=lax';}
     function hideConsentBanner(){var b=document.getElementById('consentBanner');if(b){b.classList.remove('visible');b.classList.add('hiding');}}
+    function signalQooqieConsent(g){/* Qooqie consent hook: no-op if Qooqie reads Consent Mode v2 from the dataLayer; fill in per the Qooqie dashboard docs */}
   </script>
   <!-- Google Tag Manager (deferred via requestIdleCallback) -->
   <script>(function(){var loadGTM=function(){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MPDPCSH4');};if('requestIdleCallback' in window){requestIdleCallback(loadGTM,{timeout:2500});}else{setTimeout(loadGTM,1500);}})();</script>

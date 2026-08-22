@@ -114,7 +114,20 @@
 @media (max-width: 768px) {
 
     .mobile-sticky-bar {
-        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+
+        background: linear-gradient(90deg, #ff7e5f, #feb47b);
+        padding: 12px 12px 16px;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
+
+        display: block;
+
+        /* Slide up animation */
+        animation: slideUp 0.5s ease-out;
     }
 
     /* Smooth entrance */
