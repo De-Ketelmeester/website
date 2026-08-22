@@ -2678,7 +2678,7 @@ a.hero-phone:hover {
    ========================================================== */
 .lp-regions {
   padding: 96px 20px;
-  background: #fff;
+  background: var(--gray-light);
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -2702,13 +2702,6 @@ a.hero-phone:hover {
   height: auto;
 }
 
-.lp-regions::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -9;
-  background: radial-gradient(ellipse 60% 80% at 20% 30%, rgba(218, 68, 17, 0.10), transparent 70%);
-}
 
 .lp-regions .km-container {
   max-width: 1100px;
@@ -2754,13 +2747,14 @@ a.hero-phone:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 14px;
-  background: #fff1ec;
-  border: 1px solid #ffd9c9;
-  border-radius: 999px;
+  padding: 14px 12px;
+  background: #fff;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 12px;
   color: #1a1a1a;
   font-weight: 600;
   font-size: 0.95rem;
+  box-shadow: 0 1px 2px rgba(17, 17, 17, 0.03);
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -2769,7 +2763,7 @@ a.hero-phone:hover {
   width: 14px;
   height: 14px;
   margin-right: 8px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e293b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'/><circle cx='12' cy='10' r='3'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23DA4411' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'/><circle cx='12' cy='10' r='3'/></svg>");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -2777,10 +2771,9 @@ a.hero-phone:hover {
 }
 
 .lp-region-tile:hover {
-  background: #fff;
-  border-color: var(--yellow);
+  border-color: rgba(218, 68, 17, 0.45);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(218, 68, 17, 0.12);
+  box-shadow: 0 6px 16px -6px rgba(218, 68, 17, 0.25);
 }
 
 .lp-regions-cta {
