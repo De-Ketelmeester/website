@@ -455,3 +455,15 @@ document.addEventListener('submit', function(e) {
     });
   }, { passive: true });
 })();
+
+// ============ REGION MAP HOVER PINS ============
+(function () {
+  var tiles = document.querySelectorAll('.lp-region-tile[data-city]');
+  if (!tiles.length) return;
+  tiles.forEach(function (tile) {
+    var pin = document.querySelector('.lp-map-pin[data-city="' + tile.getAttribute('data-city') + '"]');
+    if (!pin) return;
+    tile.addEventListener('mouseenter', function () { pin.classList.add('active'); });
+    tile.addEventListener('mouseleave', function () { pin.classList.remove('active'); });
+  });
+})();
