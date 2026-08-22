@@ -39,7 +39,13 @@ gtag('consent', 'default', {
 
 function showConsentBanner() {
   var banner = document.getElementById('consentBanner');
-  if (banner) banner.classList.add('visible');
+  if (!banner) return;
+  // Keep the mobile sticky call bar tappable: stack the banner on top of it
+  var bar = document.querySelector('.mobile-sticky-bar');
+  if (bar && getComputedStyle(bar).display !== 'none') {
+    banner.style.bottom = bar.offsetHeight + 'px';
+  }
+  banner.classList.add('visible');
 }
 
 function acceptCookies() {
@@ -50,11 +56,13 @@ function acceptCookies() {
     'ad_user_data': 'granted',
     'ad_personalization': 'granted'
   });
+  signalQooqieConsent(true);
   hideConsentBanner();
 }
 
 function declineCookies() {
   setConsentCookie('denied');
+  signalQooqieConsent(false);
   hideConsentBanner();
 }
 
@@ -69,4 +77,12 @@ function hideConsentBanner() {
     banner.classList.remove('visible');
     banner.classList.add('hiding');
   }
+}
+
+function signalQooqieConsent(granted) {
+  // Qooqie consent hook. If Qooqie reads Google Consent Mode v2 from the
+  // dataLayer, the gtag('consent','update') calls above already cover it and
+  // this stays a no-op. Fill in per the Qooqie dashboard docs if it exposes
+  // its own consent API. Number swap and call counting run regardless of
+  // consent; only gclid/session linkage is consent-gated (Qooqie-side config).
 }
