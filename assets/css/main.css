@@ -1407,8 +1407,36 @@ a[href^="tel:"] .bel-label { display: none; }
   a[href^="tel:"] .bel-nummer { display: none; }
 }
 
-/* While the Qooqie number swap is pending the numbers are blanked, so the
-   visitor never sees the real number flip to the tracking number. The
-   qq-wait class is set by inline JS and removed on swap or after 1.2s,
-   so no-JS visitors and Qooqie failures always end at a visible number. */
-.qq-wait a[href^="tel:"] { visibility: hidden; }
+/* While the Qooqie number swap is pending, tel links hide their text and
+   show a small spinner in place, so the visitor never sees the real number
+   flip to the tracking number and never stares at empty space. The qq-wait
+   class is set by inline JS and removed on swap or after 1.2s, so no-JS
+   visitors and Qooqie failures always end at a visible number. */
+.qq-wait a[href^="tel:"] {
+  color: transparent !important;
+  position: relative;
+}
+.qq-wait a[href^="tel:"] > * {
+  visibility: hidden;
+}
+.qq-wait a[href^="tel:"]::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid rgba(17, 17, 17, 0.15);
+  border-top-color: #DA4411;
+  border-radius: 50%;
+  animation: qq-spin 0.7s linear infinite;
+}
+.qq-wait a.bel-knop::after,
+.qq-wait a.cta-btn::after {
+  border-color: rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+}
+@keyframes qq-spin {
+  to { transform: rotate(360deg); }
+}
