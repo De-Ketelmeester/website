@@ -487,10 +487,8 @@
   margin: 0;
 }
 
-.hero-split-buttons .bel-knop.offerte {
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.35);
-  color: #fff;
+.hero-split-buttons .whatsapp-knop {
+  margin: 0;
 }
 
 .hero-checks-slider {
@@ -649,7 +647,8 @@
   .hero-phone-number {
     font-size: 1.6rem;
   }
-  .hero-split-buttons .bel-knop {
+  .hero-split-buttons .bel-knop,
+  .hero-split-buttons .whatsapp-knop {
     flex: 1 1 100%;
     text-align: center;
     justify-content: center;
@@ -2833,5 +2832,61 @@ a.hero-phone:hover {
   }
   .lp-regions-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Scroll To Top Floating Button (sits above .whatsapp-float) --- */
+.scroll-top-float {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #DA4411;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 9998;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.scroll-top-float.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-float:hover {
+  background: #b83a0e;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top-float svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Sticky-bar call button: number stays in the DOM for the Qooqie swap, hidden visually */
+.mobile-sticky-bar .cta-btn-num {
+  display: none;
+}
+
+/* On mobile the sticky call bar owns the bottom edge; lift the floats above it */
+@media (max-width: 768px) {
+  body:has(.mobile-sticky-bar) .whatsapp-float {
+    bottom: 112px;
+  }
+  body:has(.mobile-sticky-bar) .scroll-top-float {
+    bottom: 188px;
   }
 }
