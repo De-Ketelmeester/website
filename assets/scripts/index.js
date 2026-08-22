@@ -431,3 +431,27 @@ document.addEventListener('submit', function(e) {
 
 
 
+
+// ============ SCROLL TO TOP BUTTON ============
+(function () {
+  var whatsappFloat = document.querySelector('a.whatsapp-float');
+  if (!whatsappFloat) return;
+  var btn = document.createElement('button');
+  btn.className = 'scroll-top-float';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', 'Terug naar boven');
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>';
+  document.body.appendChild(btn);
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      btn.classList.toggle('visible', window.scrollY > 600);
+      ticking = false;
+    });
+  }, { passive: true });
+})();
