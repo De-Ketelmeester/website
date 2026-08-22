@@ -2890,3 +2890,47 @@ a.hero-phone:hover {
     bottom: 188px;
   }
 }
+
+/* --- Region map hover pins --- */
+.lp-map-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+}
+
+.lp-map-wrap img {
+  display: block;
+}
+
+.lp-map-pin {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -100%) scale(0);
+  transform-origin: 50% 100%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231d4ed8' stroke='%23ffffff' stroke-width='1.2'><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'/><circle cx='12' cy='10' r='3' fill='%23ffffff' stroke='none'/></svg>");
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lp-map-pin.active {
+  animation: pinPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes pinPop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -100%) scale(0);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -100%) scale(1.18);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -100%) scale(1);
+  }
+}
