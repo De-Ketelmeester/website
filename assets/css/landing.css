@@ -2599,12 +2599,8 @@ a.hero-phone:hover {
 .lp-trust-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
   gap: 20px;
-}
-
-/* Staggered right column for a lighter, less template-like grid */
-.lp-trust-cards .lp-trust-card:nth-child(even) {
-  margin-top: 22px;
 }
 
 .lp-trust-card {
@@ -2671,9 +2667,6 @@ a.hero-phone:hover {
   }
   .lp-trust-cards {
     grid-template-columns: 1fr;
-  }
-  .lp-trust-cards .lp-trust-card:nth-child(even) {
-    margin-top: 0;
   }
   .lp-trust-text h2 {
     font-size: 1.7rem;
