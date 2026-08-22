@@ -2099,3 +2099,12 @@ body {
     padding: 14px 20px;
   }
 }
+
+/* Desktop shows the phone number on call buttons, since a desktop visitor
+   dials by hand. Mobile keeps the tap-to-call label. Number lives in the
+   markup so the Qooqie swap picks it up like any other number. */
+.bel-nummer { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  a[href^="tel:"] .bel-label { display: none; }
+  a[href^="tel:"] .bel-nummer { display: inline; }
+}
