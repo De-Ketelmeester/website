@@ -40,12 +40,21 @@ gtag('consent', 'default', {
 function showConsentBanner() {
   var banner = document.getElementById('consentBanner');
   if (!banner) return;
-  // Keep the mobile sticky call bar tappable: stack the banner on top of it
-  var bar = document.querySelector('.mobile-sticky-bar');
-  if (bar && getComputedStyle(bar).display !== 'none') {
-    banner.style.bottom = bar.offsetHeight + 'px';
-  }
+  syncConsentOffset();
+  window.addEventListener('resize', syncConsentOffset);
+  window.addEventListener('orientationchange', syncConsentOffset);
   banner.classList.add('visible');
+}
+
+// Keep the mobile sticky call bar tappable: stack the banner on top of it.
+// The offset drives a transform, never `bottom`, so the hidden state can still
+// translate fully off screen and stop swallowing taps on the call bar.
+function syncConsentOffset() {
+  var banner = document.getElementById('consentBanner');
+  if (!banner) return;
+  var bar = document.querySelector('.mobile-sticky-bar');
+  var offset = (bar && getComputedStyle(bar).display !== 'none') ? bar.offsetHeight : 0;
+  banner.style.setProperty('--consent-offset', offset + 'px');
 }
 
 function acceptCookies() {
@@ -73,10 +82,12 @@ function setConsentCookie(value) {
 
 function hideConsentBanner() {
   var banner = document.getElementById('consentBanner');
-  if (banner) {
-    banner.classList.remove('visible');
-    banner.classList.add('hiding');
-  }
+  if (!banner) return;
+  window.removeEventListener('resize', syncConsentOffset);
+  window.removeEventListener('orientationchange', syncConsentOffset);
+  banner.classList.remove('visible');
+  banner.classList.add('hiding');
+  banner.style.removeProperty('--consent-offset');
 }
 
 function signalQooqieConsent(granted) {
