@@ -2934,3 +2934,63 @@ a.hero-phone:hover {
     transform: translate(-50%, -100%) scale(1);
   }
 }
+
+/* ---------------------------------------------------------------
+   Mobile hero, 2026-09-05
+   On phones the availability badge and the standalone phone number
+   come out of the hero. The badge slot carries a brand slider instead,
+   and the only controls left are Bel Direct and Direct Hulp.
+   Desktop is unchanged.
+   --------------------------------------------------------------- */
+
+.hero-brand-slider {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hero .hero-badge,
+  .hero .hero-phone {
+    display: none !important;
+  }
+
+  .hero-brand-slider {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 22px;
+    padding: 9px 0;
+    /* Solid #fff, matching the opaque white baked into the logo PNGs.
+       Any transparency here renders grey over the dark hero and the
+       logo blocks show as lighter rectangles. */
+    background: #fff;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  }
+
+  .hero-brand-mask {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+  }
+
+  .hero-brand-track {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    width: max-content;
+    animation: logoScroll 22s linear infinite;
+  }
+
+  .hero-brand-track img {
+    height: 22px;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-brand-track {
+    animation: none;
+  }
+}
