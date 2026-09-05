@@ -3040,3 +3040,14 @@ a.hero-phone:hover {
     transform: translateY(0);
   }
 }
+
+/* The navbar is position:fixed and turns solid white on scroll. On mobile it
+   measures 94px while the hero's top padding was 80px, leaving the brand strip
+   only 8px of clearance, so the slightest scroll tucked a white pill under a
+   white navbar and read as a clipped, broken element. Clear the navbar
+   properly. */
+@media (max-width: 768px) {
+  .hero.hero-split {
+    padding-top: 124px;
+  }
+}
