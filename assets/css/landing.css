@@ -2957,8 +2957,8 @@ a.hero-phone:hover {
     display: block;
     width: 100%;
     max-width: 340px;
-    margin: 0 auto 22px;
-    padding: 9px 0;
+    margin: 22px auto 30px;
+    padding: 11px 0;
     /* Solid #fff, matching the opaque white baked into the logo PNGs.
        Any transparency here renders grey over the dark hero and the
        logo blocks show as lighter rectangles. */
@@ -2976,16 +2976,21 @@ a.hero-phone:hover {
   .hero-brand-track {
     display: flex;
     align-items: center;
-    gap: 36px;
     width: max-content;
     animation: logoScroll 22s linear infinite;
   }
 
+  /* Spacing lives on the image rather than as flex `gap`. With `gap` the track
+     is 12 logos separated by 11 gaps, so half the track width is half a gap
+     short of one full repeat and translateX(-50%) snaps back visibly once per
+     loop. A uniform right margin makes each half exactly one repeat unit,
+     so the seam is invisible. */
   .hero-brand-track img {
     height: 22px;
     width: auto;
     flex-shrink: 0;
     object-fit: contain;
+    margin-right: 36px;
   }
 }
 
