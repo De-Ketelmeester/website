@@ -3051,3 +3051,323 @@ a.hero-phone:hover {
     padding-top: 124px;
   }
 }
+
+/* ===============================================================
+   CRO blocks 2, 3 and 4, cv-storing. 2026-09-05
+   Price consolidation, pre-call self check, gas safety.
+   Matches the existing lp-* language: white cards, 18px radius,
+   layered shadow, #DA4411 accent, 96px section rhythm.
+   =============================================================== */
+
+/* --- Block 4. One price panel instead of four scattered claims --- */
+.lp-price-card {
+  background: #fff;
+  border: 1px solid rgba(17, 17, 17, 0.05);
+  border-radius: 18px;
+  padding: 30px 28px;
+  box-shadow:
+    0 1px 2px rgba(17, 17, 17, 0.04),
+    0 18px 44px -24px rgba(17, 17, 17, 0.22);
+}
+
+.lp-price-eyebrow {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: 18px;
+}
+
+.lp-price-rows {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+}
+
+.lp-price-rows li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px dashed rgba(17, 17, 17, 0.12);
+}
+
+.lp-price-rows li:last-child {
+  border-bottom: 0;
+}
+
+.lp-price-rows span {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.lp-price-rows b {
+  flex-shrink: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111;
+  letter-spacing: -0.5px;
+}
+
+.lp-price-note {
+  margin: 0 0 22px;
+  font-size: 0.88rem;
+  color: #777;
+}
+
+.lp-price-guarantee {
+  margin-top: 4px;
+  padding: 22px 24px;
+  border-radius: 14px;
+  /* Dark seal to close the bill, echoing the lp-cta-spoed section rather than
+     the washed-out tint this started as. */
+  background: #16181d;
+  color: #fff;
+}
+
+.lp-price-guarantee-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 10px;
+}
+
+.lp-price-guarantee-badge {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.lp-price-guarantee-head h3 {
+  margin: 0;
+  font-size: 1.06rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: #fff;
+}
+
+.lp-price-guarantee p {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* --- Block 2. Pre-call self check ---
+   Two-column split: heading, intro and CTA on the left, one card of numbered
+   rows on the right. Typographic numerals with hairline dividers rather than a
+   grid of separate boxes, which read as cluttered at this size. --- */
+.lp-selfcheck {
+  padding: 96px 20px;
+  /* Warm paper. lp-regions above is #f9f9f9 and lp-faq below is #fff, so
+     leaving this white ran three sections together. Scoped to the two new
+     classes so no shared section changes on other pages. */
+  background: #f5f2ee;
+}
+
+.lp-selfcheck-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.lp-selfcheck-lead h2 {
+  margin: 6px 0 16px;
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: #111;
+}
+
+.lp-selfcheck-intro {
+  margin: 0 0 22px;
+  color: #666;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.lp-selfcheck-warn {
+  margin: 0 0 28px;
+  padding: 14px 18px;
+  border-left: 3px solid var(--yellow);
+  background: rgba(218, 68, 17, 0.05);
+  border-radius: 0 10px 10px 0;
+  color: #333;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.lp-selfcheck-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* One per row. Side by side the column is only ~376px, which wraps
+   "085 0041138" and "Direct Hulp" onto two cramped lines. */
+.lp-selfcheck-cta .bel-knop,
+.lp-selfcheck-cta .whatsapp-knop {
+  flex: 1 1 100%;
+  /* .bel-knop is display:block by default, so justify-content alone did
+     nothing and the content sat left. Force flex on both so they centre
+     identically, the way every other CTA pair on the page does. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The card */
+.lp-selfcheck-panel {
+  background: #fff;
+  border: 1px solid rgba(17, 17, 17, 0.09);
+  border-radius: 24px;
+  padding: 4px 32px 26px;
+  box-shadow: 0 12px 32px rgba(23, 55, 53, 0.07);
+}
+
+.lp-selfcheck-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lp-selfcheck-steps li {
+  display: flex;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.lp-selfcheck-steps li:last-child {
+  border-bottom: 0;
+}
+
+.lp-selfcheck-num {
+  flex-shrink: 0;
+  min-width: 30px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--yellow);
+  font-variant-numeric: tabular-nums;
+}
+
+.lp-selfcheck-step-body h3 {
+  margin: 0 0 5px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.35;
+}
+
+.lp-selfcheck-step-body p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #666;
+}
+
+.lp-selfcheck-link {
+  margin: 6px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
+  font-size: 0.93rem;
+  color: #777;
+}
+
+.lp-selfcheck-link a {
+  color: var(--yellow);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .lp-selfcheck-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+}
+
+@media (max-width: 620px) {
+  .lp-selfcheck { padding: 64px 20px; }
+  .lp-selfcheck-panel { padding: 4px 20px 22px; }
+  .lp-selfcheck-steps li { gap: 14px; padding: 20px 0; }
+}
+
+/* --- Block 3. Gas safety. Reads as advice, never as a sales block --- */
+.lp-gas {
+  padding: 0 20px 96px;
+  background: #f5f2ee;
+}
+
+.lp-gas-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 28px;
+  border-radius: 18px;
+  background: #fffdf5;
+  border: 1px solid rgba(198, 146, 20, 0.28);
+  box-shadow: 0 18px 44px -30px rgba(17, 17, 17, 0.25);
+}
+
+.lp-gas-icon {
+  flex-shrink: 0;
+  font-size: 1.7rem;
+  line-height: 1;
+  color: #b8860b;
+}
+
+.lp-gas-body h2 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  color: #111;
+}
+
+.lp-gas-body p {
+  margin: 0 0 12px;
+  line-height: 1.65;
+  color: #444;
+  font-size: 0.97rem;
+}
+
+.lp-gas-lead {
+  font-weight: 600;
+  color: #222 !important;
+}
+
+.lp-gas-body a {
+  color: #a8600c;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.lp-gas-foot {
+  margin-bottom: 0 !important;
+  padding-top: 12px;
+  border-top: 1px solid rgba(198, 146, 20, 0.22);
+  color: #666 !important;
+  font-size: 0.92rem !important;
+}
+
+@media (max-width: 768px) {
+  .lp-selfcheck { padding: 64px 20px; }
+  .lp-gas { padding: 0 20px 64px; }
+  .lp-price-card { padding: 24px 20px; }
+  .lp-price-rows b { font-size: 1.2rem; }
+  .lp-gas-card { flex-direction: column; gap: 12px; padding: 22px; }
+  .lp-selfcheck-cta .bel-knop,
+  .lp-selfcheck-cta .whatsapp-knop { width: 100%; justify-content: center; }
+}

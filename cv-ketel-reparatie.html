@@ -33,7 +33,7 @@
   <link rel="preload" as="font" type="font/woff2" href="./assets/fonts/montserrat-latin.woff2" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="stylesheet" href="./assets/css/main.css" />
-  <link rel="stylesheet" href="./assets/css/landing.css?v=20260905d" />
+  <link rel="stylesheet" href="./assets/css/landing.css?v=20260905e" />
   <script src="./assets/scripts/index.js" defer></script>
 
   <!-- Favicon -->
@@ -534,34 +534,22 @@
     <section class="lp-trust-panel">
       <div class="km-container">
         <div class="lp-trust-grid fade-up">
-          <div class="lp-trust-cards">
-            <div class="lp-trust-card">
-              <span class="lp-trust-card-badge">&#10003;</span>
-              <div>
-                <h3>&euro;40 voorrijkosten</h3>
-                <p>&Eacute;&eacute;n vast tarief van &euro;40 voor de rit naar u toe, vooraf besproken. Geen verborgen kosten of verrassingen achteraf.</p>
+          <div class="lp-price-card">
+            <span class="lp-price-eyebrow">Wat het kost</span>
+            <ul class="lp-price-rows">
+              <li><span>Voorrijkosten</span><b>&euro;40</b></li>
+              <li><span>Reparatie, eerste uur arbeidsloon</span><b>vanaf &euro;110</b></li>
+              <li><span>Toeslag voor avond en weekend</span><b>&euro;0</b></li>
+            </ul>
+            <p class="lp-price-note">Alle bedragen inclusief btw. Materiaal bespreken wij vooraf apart met u.</p>
+            <!-- PRICE GUARANTEE. Confirmed by Sander via Jefaro 2026-09-05,
+                 no cure no pay DOES cover the EUR 40 voorrijkosten. -->
+            <div class="lp-price-guarantee">
+              <div class="lp-price-guarantee-head">
+                <span class="lp-price-guarantee-badge" aria-hidden="true">&#10003;</span>
+                <h3>Geen oplossing, geen kosten</h3>
               </div>
-            </div>
-            <div class="lp-trust-card">
-              <span class="lp-trust-card-badge">&#10003;</span>
-              <div>
-                <h3>Prijsopgave vooraf</h3>
-                <p>Voor we beginnen aan de reparatie hoort u wat het kost. Geen kleine lettertjes, geen verrassingen achteraf.</p>
-              </div>
-            </div>
-            <div class="lp-trust-card">
-              <span class="lp-trust-card-badge">&#10003;</span>
-              <div>
-                <h3>Heldere uurprijs</h3>
-                <p>Onze tarieven communiceren we vooraf duidelijk. Wat we afspreken is wat u betaalt. Geen verborgen kosten.</p>
-              </div>
-            </div>
-            <div class="lp-trust-card">
-              <span class="lp-trust-card-badge">&#10003;</span>
-              <div>
-                <h3>No cure, no pay</h3>
-                <p>Lukt de reparatie niet? Dan betaalt u niets. Geen risico, geen excuses.</p>
-              </div>
+              <p>De monteur kijkt eerst en vertelt u wat het gaat kosten. Wij beginnen pas als u ja zegt. Lukt het ons niet om de storing te verhelpen, dan betaalt u niets. Ook de voorrijkosten niet.</p>
             </div>
           </div>
           <div class="lp-trust-text">
@@ -625,6 +613,76 @@
               <span class="lp-map-pin" data-city="amersfoort" style="left:52.5%;top:49.9%"></span>
               <span class="lp-map-pin" data-city="amsterdam" style="left:40.0%;top:42.3%"></span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zelf controleren (pre-call diagnostic) -->
+    <section class="lp-selfcheck fade-up">
+      <div class="km-container">
+        <div class="lp-selfcheck-grid">
+
+          <div class="lp-selfcheck-lead">
+            <span class="lp-feature-label">Eerst zelf even kijken</span>
+            <h2>Wat u veilig zelf kunt controleren voordat u belt</h2>
+            <p class="lp-selfcheck-intro">Vier dingen die u in twee minuten doet. Ze schelen soms een reparatie en anders geven ze de monteur een flinke voorsprong.</p>
+            <p class="lp-selfcheck-warn">Open nooit zelf de ketel en draai niets los. Alles achter de kap is werk voor een erkende monteur.</p>
+            <div class="lp-selfcheck-cta">
+              <a class="bel-knop" href="tel:0850041138"><span class="icon-phone" aria-hidden="true"></span><span class="bel-label"> Bel Direct</span><span class="bel-nummer"> 085 0041138</span></a>
+              <a class="whatsapp-knop" href="https://wa.me/31684217247" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" class="whatsapp-icon"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Direct Hulp</a>
+            </div>
+          </div>
+
+          <div class="lp-selfcheck-panel">
+            <ol class="lp-selfcheck-steps">
+            <li>
+              <span class="lp-selfcheck-num">01</span>
+              <div class="lp-selfcheck-step-body">
+                <h3>Lees de code van het display</h3>
+                <p>Bijna elke moderne ketel toont een code als hij uitvalt. Schrijf hem over, ook als u niet weet wat hij betekent.</p>
+              </div>
+            </li>
+            <li>
+              <span class="lp-selfcheck-num">02</span>
+              <div class="lp-selfcheck-step-body">
+                <h3>Kijk naar de waterdruk</h3>
+                <p>De meter hoort tussen 1,5 en 2 bar te staan als de ketel koud is. Staat hij onder de 1 bar, dan is dat vaak de hele storing.</p>
+              </div>
+            </li>
+            <li>
+              <span class="lp-selfcheck-num">03</span>
+              <div class="lp-selfcheck-step-body">
+                <h3>Controleer of uw gas het verder doet</h3>
+                <p>Werkt uw gasfornuis normaal, dan ligt het niet aan de gastoevoer en is het de ketel zelf.</p>
+              </div>
+            </li>
+            <li>
+              <span class="lp-selfcheck-num">04</span>
+              <div class="lp-selfcheck-step-body">
+                <h3>Reset de ketel een keer</h3>
+                <p>E&eacute;n keer. Blijft de storing terugkomen, blijf dan niet resetten, want dan is er iets kapot dat een monteur moet zien.</p>
+              </div>
+            </li>
+            </ol>
+            <p class="lp-selfcheck-link">Meer over specifieke foutcodes leest u op <a href="cv-storingscodes.html">onze pagina met CV storingscodes</a>.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Gaslucht (safety, deliberately routes away from us) -->
+    <section class="lp-gas fade-up">
+      <div class="km-container">
+        <div class="lp-gas-card">
+          <span class="lp-gas-icon" aria-hidden="true">&#9888;</span>
+          <div class="lp-gas-body">
+            <h2>Ruikt u gas</h2>
+            <p class="lp-gas-lead">Bel dan niet ons maar direct het landelijke storingsnummer <a href="tel:08009009">0800 9009</a>. Dat nummer is gratis en 24 uur per dag bereikbaar.</p>
+            <p>Doe eerst dit. Draai de gaskraan dicht, zet ramen en deuren open, raak geen enkele schakelaar of stekker aan en ga naar buiten. Bel daarna pas.</p>
+            <p>Het offici&euml;le stappenplan staat op <a href="https://www.gasenstroomstoringen.nl" target="_blank" rel="noopener">gasenstroomstoringen.nl</a>.</p>
+            <p class="lp-gas-foot">Is er geen gaslucht en valt uw ketel alleen uit, dan helpen wij u wel gewoon verder.</p>
           </div>
         </div>
       </div>
