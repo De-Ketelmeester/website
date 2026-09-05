@@ -33,7 +33,7 @@
   <link rel="preload" as="font" type="font/woff2" href="./assets/fonts/montserrat-latin.woff2" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="stylesheet" href="./assets/css/main.css" />
-  <link rel="stylesheet" href="./assets/css/landing.css?v=20260905" />
+  <link rel="stylesheet" href="./assets/css/landing.css?v=20260905b" />
   <script src="./assets/scripts/index.js" defer></script>
 
   <!-- Favicon -->
@@ -844,6 +844,27 @@
       });
     }, { threshold: 0.15 });
     fadeEls.forEach(function(el) { observer.observe(el); });
+
+    // Bottom furniture stays out of the hero on mobile. Once the hero has
+    // scrolled fully out of view, body.past-hero reveals the sticky call bar
+    // and the WhatsApp float. syncConsentOffset is re-run so the consent
+    // banner repositions when the bar appears or disappears.
+    (function () {
+      var hero = document.querySelector('.hero');
+      var body = document.body;
+      if (!hero || !('IntersectionObserver' in window)) {
+        body.classList.add('past-hero');   // never leave them permanently hidden
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          body.classList.toggle('past-hero', !e.isIntersecting);
+          if (typeof syncConsentOffset === 'function') syncConsentOffset();
+        });
+      }, { threshold: 0 });
+      io.observe(hero);
+    })();
+
 
   </script>
 

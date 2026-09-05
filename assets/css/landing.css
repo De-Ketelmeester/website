@@ -2994,3 +2994,44 @@ a.hero-phone:hover {
     animation: none;
   }
 }
+
+/* ---------------------------------------------------------------
+   Mobile hero refinements, 2026-09-05
+   --------------------------------------------------------------- */
+
+/* Hero subtext was rgba(255,255,255,.75) and read grey against the photo. */
+.hero p.hero-split-sub {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 768px) {
+  /* Longer fade ramp so logos dissolve at the edges instead of clipping. */
+  .hero-brand-mask {
+    mask-image: linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
+  }
+
+  /* Keep the bottom furniture out of the hero. The sticky call bar and the
+     WhatsApp float only appear once the visitor has scrolled past the hero,
+     so a first paid visit lands on the hero CTAs and nothing over them.
+     The bar toggles on `display` rather than opacity because
+     syncConsentOffset() measures it that way to position the consent banner. */
+  .mobile-sticky-bar {
+    display: none;
+  }
+  body.past-hero .mobile-sticky-bar {
+    display: block;
+  }
+
+  .whatsapp-float {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  }
+  body.past-hero .whatsapp-float {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
